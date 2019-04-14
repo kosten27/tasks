@@ -1,10 +1,17 @@
-package task1.service.impl;
+package task1.services.impl;
 
-import task1.entity.ChessBoard;
-import task1.service.ChessBoardService;
+import task1.controllers.ViewController;
+import task1.model.ChessBoard;
+import task1.services.ChessBoardService;
 
 public class ChessBoardServiceImpl implements ChessBoardService {
-    public void printIntoConsole(ChessBoard chessBoard) {
+    ViewController viewController;
+
+    public ChessBoardServiceImpl(ViewController viewController) {
+        this.viewController = viewController;
+    }
+
+    public void show(ChessBoard chessBoard) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < chessBoard.getHeight(); i++) {
             for (int j = 0; j < chessBoard.getWidth(); j++) {
@@ -16,6 +23,6 @@ public class ChessBoardServiceImpl implements ChessBoardService {
             }
             stringBuilder.append("\n");
         }
-        System.out.println(stringBuilder);
+        viewController.show(stringBuilder.toString());
     }
 }

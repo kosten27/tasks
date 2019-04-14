@@ -1,4 +1,4 @@
-package task1.entity;
+package task1.model;
 
 public class ChessBoard {
     private int height;
