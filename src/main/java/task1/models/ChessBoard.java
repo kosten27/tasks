@@ -1,4 +1,4 @@
-package task1.model;
+package task1.models;
 
 public class ChessBoard {
     private int height;

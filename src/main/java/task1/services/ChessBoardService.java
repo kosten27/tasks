@@ -1,7 +1,7 @@
 package task1.services;
 
-import task1.model.ChessBoard;
+import task1.models.ChessBoard;
 
 public interface ChessBoardService {
-    void show(ChessBoard chessBoard);
+    String getChessBoardPresentation(ChessBoard chessBoard);
 }
