@@ -9,9 +9,11 @@ import task2.validators.ValidationService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class ConsoleControllerImpl implements ViewController {
 
+    private static final int NUMBER_OF_ENVELOPES_TO_COMPARE = 2;
     private BufferedReader bufferedReader;
     private ValidationService validationService;
     private EnvelopeService envelopeService;
@@ -44,22 +46,29 @@ public class ConsoleControllerImpl implements ViewController {
     }
 
     private void compareEnvelopes() {
-        Envelope firstEnvelope = createEnvelope();
-        Envelope secondEnvelope = createEnvelope();
+        ArrayList<Envelope> envelopes = new ArrayList();
+        for (int i = 0; i < NUMBER_OF_ENVELOPES_TO_COMPARE; i++) {
+            envelopes.add(createEnvelope(i));
+        }
 
-        int compare = envelopeService.compare(firstEnvelope, secondEnvelope);
-        if (compare > 0) {
-            System.out.println("The second envelope can be put in the first envelope.");
-        } else if (compare < 0) {
-            System.out.println("The first envelope can be put in the second envelope.");
-        } else {
-            System.out.println("Envelopes cannot be nested.");
+        for (int i = 0; i < envelopes.size() - 1; i++) {
+            for (int j = i + 1; j < envelopes.size(); j++) {
+                int compare = envelopeService.compare(envelopes.get(i), envelopes.get(j));
+                if (compare > 0) {
+                    System.out.printf("Envelope #%d can be put in envelope #%d.\n", j, i);
+                } else if (compare < 0) {
+                    System.out.printf("Envelope #%d can be put in envelope #%d.\n", i, j);
+                } else {
+                    System.out.printf("Envelopes #%d and #%d cannot be nested.\n", i, j);
+                }
+            }
         }
     }
 
-    private Envelope createEnvelope() {
-        double height = readDouble("Enter envelope height:");
-        double width = readDouble("Enter envelope width:");
+    private Envelope createEnvelope(int envelopeNumber) {
+        System.out.println("Envelope #" + envelopeNumber + ":");
+        double height = readDouble("Enter height:");
+        double width = readDouble("Enter width:");
 
         return new Envelope(height, width);
     }
