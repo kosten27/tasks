@@ -1,8 +1,8 @@
-package task2.models;
+package models;
 
 public class Envelope {
-    private double height;
-    private double width;
+    private final double height;
+    private final double width;
 
     public Envelope(double height, double width) {
         this.height = height;
@@ -13,15 +13,15 @@ public class Envelope {
         return height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
     public double getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
-        this.width = width;
+    @Override
+    public String toString() {
+        return "Envelope{" +
+                "height=" + height +
+                ", width=" + width +
+                '}';
     }
 }

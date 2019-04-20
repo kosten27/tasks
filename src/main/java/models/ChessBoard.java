@@ -1,8 +1,8 @@
-package task1.models;
+package models;
 
 public class ChessBoard {
-    private int height;
-    private int width;
+    private final int height;
+    private final int width;
 
     public ChessBoard(int height, int width) {
         this.height = height;
@@ -13,15 +13,7 @@ public class ChessBoard {
         return height;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
     public int getWidth() {
         return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 }

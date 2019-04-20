@@ -1,13 +1,15 @@
-package task1.validators.impl;
+package validators;
 
-import task1.exceptions.ValidationException;
-import task1.validators.ValidationService;
 
-public class ValidationServiceImpl implements ValidationService {
+import exceptions.ValidationException;
+
+public class ChessBoardValidator {
     private final String REQUIRED_PARAMETERS_EXCEPTION = "When you start the application, " +
-            "you must pass the parameters height and width.";
-    private final String REQUIRED_TYPE_OF_PARAMETERS_EXCEPTION = "Parameters should be of type integer.";
-    private final String MIN_VALUE_OF_PARAMETERS_EXCEPTION = "Parameter value must be greater than 1.";
+            "you must pass the program arguments height and width of the chessboard.";
+    private final String REQUIRED_TYPE_OF_PARAMETERS_EXCEPTION = "Program arguments for a chessboard should be " +
+            "of a numeric type.";
+    private final String MIN_VALUE_OF_PARAMETERS_EXCEPTION = "Program arguments for a chessboard should be " +
+            "greater than 1.";
 
     public void validateParameters(String[] args) throws ValidationException {
         int requiredNumberOfParameters = 2;

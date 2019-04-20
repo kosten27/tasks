@@ -1,22 +1,21 @@
-package task1.services.impl;
+package services;
 
-import task1.models.ChessBoard;
-import task1.services.ChessBoardService;
+import models.ChessBoard;
 
-public class ChessBoardServiceImpl implements ChessBoardService {
+public class ChessBoardService {
 
     public String getChessBoardPresentation(ChessBoard chessBoard) {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < chessBoard.getHeight(); i++) {
             for (int j = 0; j < chessBoard.getWidth(); j++) {
                 if (((i - j) % 2) == 0) {
-                    stringBuilder.append("*");
+                    stringBuilder.append('*');
                 } else {
-                    stringBuilder.append(" ");
+                    stringBuilder.append(' ');
                 }
             }
-            stringBuilder.append("\n");
+            stringBuilder.append('\n');
         }
-         return stringBuilder.toString();
+        return stringBuilder.toString();
     }
 }
