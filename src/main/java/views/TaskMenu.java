@@ -23,6 +23,10 @@ public class TaskMenu {
                     EnvelopeView envelopeView = new EnvelopeView(consoleHelper);
                     envelopeView.show();
                     break;
+                case "3":
+                    TriangleView triangleView = new TriangleView(consoleHelper);
+                    triangleView.show();
+                    break;
                 case "E":
                     isRunning = false;
                     break;
@@ -36,6 +40,7 @@ public class TaskMenu {
     private void showMenu() {
         consoleHelper.write("1. Chess board");
         consoleHelper.write("2. Envelope analysis");
+        consoleHelper.write("3. Sort triangles");
         consoleHelper.write("E. Exit");
     }
 }

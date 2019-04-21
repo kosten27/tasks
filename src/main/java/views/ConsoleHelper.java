@@ -17,7 +17,7 @@ public class ConsoleHelper {
     }
 
     public String read() {
-        return scanner.next();
+        return scanner.nextLine();
     }
 
     public String read(String s) {
