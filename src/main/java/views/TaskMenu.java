@@ -27,6 +27,10 @@ public class TaskMenu {
                     TriangleView triangleView = new TriangleView(consoleHelper);
                     triangleView.show();
                     break;
+                case "4":
+                    FileParserView fileParserView = new FileParserView(args, consoleHelper);
+                    fileParserView.show();
+                    break;
                 case "E":
                     isRunning = false;
                     break;
@@ -41,6 +45,7 @@ public class TaskMenu {
         consoleHelper.write("1. Chess board");
         consoleHelper.write("2. Envelope analysis");
         consoleHelper.write("3. Sort triangles");
+        consoleHelper.write("4. File parser");
         consoleHelper.write("E. Exit");
     }
 }
