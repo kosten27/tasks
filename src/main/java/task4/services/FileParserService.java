@@ -1,5 +1,6 @@
 package task4.services;
 
+import services.FileWorkerService;
 import util.StringParser;
 
 import java.io.IOException;

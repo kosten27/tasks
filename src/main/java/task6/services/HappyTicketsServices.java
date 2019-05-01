@@ -15,7 +15,7 @@ public class HappyTicketsServices {
     }
 
     private long countNumberOfLuckyTicketsMoskow() {
-        return IntStream.range(1001, 999999)
+        return IntStream.rangeClosed(1001, 999999)
                 .filter(x -> countSumOfNumber(x / 1000) == countSumOfNumber(x % 1000))
                 .count();
     }
@@ -50,7 +50,7 @@ public class HappyTicketsServices {
     }
 
     private long countNumberOfLuckyTicketsPiter() {
-        return IntStream.range(112, 999999)
+        return IntStream.rangeClosed(112, 999999)
                 .filter(x -> countSumOfNumber(x, true) == countSumOfNumber(x, false))
                 .count();
     }
