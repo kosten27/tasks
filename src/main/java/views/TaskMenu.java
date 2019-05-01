@@ -1,5 +1,7 @@
 package views;
 
+import task3.controllers.FileParserController;
+
 public class TaskMenu {
 
     private final String[] args;
@@ -28,8 +30,10 @@ public class TaskMenu {
                     triangleView.show();
                     break;
                 case "4":
-                    FileParserView fileParserView = new FileParserView(args, consoleHelper);
-                    fileParserView.show();
+//                    FileParserView fileParserView = new FileParserView(args, consoleHelper);
+//                    fileParserView.show();
+                    FileParserController fileParserController = new FileParserController(args, consoleHelper);
+                    fileParserController.run();
                     break;
                 case "E":
                     isRunning = false;
