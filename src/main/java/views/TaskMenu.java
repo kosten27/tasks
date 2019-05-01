@@ -1,6 +1,7 @@
 package views;
 
-import task3.controllers.FileParserController;
+import task4.controllers.FileParserController;
+import task5.controllers.NumberInWordsController;
 
 public class TaskMenu {
 
@@ -30,10 +31,12 @@ public class TaskMenu {
                     triangleView.show();
                     break;
                 case "4":
-//                    FileParserView fileParserView = new FileParserView(args, consoleHelper);
-//                    fileParserView.show();
                     FileParserController fileParserController = new FileParserController(args, consoleHelper);
                     fileParserController.run();
+                    break;
+                case "5":
+                    NumberInWordsController numberInWordsController = new NumberInWordsController(consoleHelper);
+                    numberInWordsController.run();
                     break;
                 case "E":
                     isRunning = false;
@@ -50,6 +53,7 @@ public class TaskMenu {
         consoleHelper.write("2. Envelope analysis");
         consoleHelper.write("3. Sort triangles");
         consoleHelper.write("4. File parser");
+        consoleHelper.write("5. Number in words");
         consoleHelper.write("E. Exit");
     }
 }

@@ -1,25 +1,21 @@
-package task3.controllers;
+package task4.controllers;
 
 import exceptions.ValidationException;
-import task3.services.FileParserService;
-import task3.services.FileWorkerService;
-import task3.validators.FileParserValidator;
+import task4.services.FileParserService;
+import task4.services.FileWorkerService;
+import task4.validators.FileParserValidator;
 import views.ConsoleHelper;
 
 import java.io.IOException;
 
 public class FileParserController {
-    private final String[] args;
     private final ConsoleHelper consoleHelper;
-    private final FileWorkerService fileWorkerService;
     private final FileParserService fileParserService;
     private final FileParserValidator fileParserValidator;
 
     public FileParserController(String[] args, ConsoleHelper consoleHelper) {
-        this.args = args;
         this.consoleHelper = consoleHelper;
-        fileWorkerService = new FileWorkerService();
-        fileParserService = new FileParserService(fileWorkerService);
+        fileParserService = new FileParserService(new FileWorkerService());
         fileParserValidator = new FileParserValidator();
     }
 
