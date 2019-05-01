@@ -2,6 +2,7 @@ package views;
 
 import task4.controllers.FileParserController;
 import task5.controllers.NumberInWordsController;
+import task6.controllers.HappyTicketsController;
 
 public class TaskMenu {
 
@@ -38,6 +39,10 @@ public class TaskMenu {
                     NumberInWordsController numberInWordsController = new NumberInWordsController(consoleHelper);
                     numberInWordsController.run();
                     break;
+                case "6":
+                    HappyTicketsController happyTicketsController = new HappyTicketsController(consoleHelper);
+                    happyTicketsController.run();
+                    break;
                 case "E":
                     isRunning = false;
                     break;
@@ -54,6 +59,7 @@ public class TaskMenu {
         consoleHelper.write("3. Sort triangles");
         consoleHelper.write("4. File parser");
         consoleHelper.write("5. Number in words");
+        consoleHelper.write("6. Happy tickets");
         consoleHelper.write("E. Exit");
     }
 }
