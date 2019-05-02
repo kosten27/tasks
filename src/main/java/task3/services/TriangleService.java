@@ -1,6 +1,6 @@
-package services;
+package task3.services;
 
-import models.Triangle;
+import task3.models.Triangle;
 
 import java.util.ArrayList;
 import java.util.Collections;

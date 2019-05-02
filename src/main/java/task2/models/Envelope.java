@@ -1,4 +1,4 @@
-package models;
+package task2.models;
 
 public class Envelope {
     private final double height;

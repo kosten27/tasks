@@ -1,4 +1,4 @@
-package validators;
+package task1.validators;
 
 
 import exceptions.ValidationException;

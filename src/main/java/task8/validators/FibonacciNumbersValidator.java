@@ -10,5 +10,4 @@ public class FibonacciNumbersValidator {
             throw new ValidationException(NEGATIVE_NUMBER_EXCEPTION);
         }
     }
-
 }

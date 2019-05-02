@@ -1,9 +1,9 @@
-package controllers;
+package task1.controllers;
 
 import exceptions.ValidationException;
-import models.ChessBoard;
-import services.ChessBoardService;
-import validators.ChessBoardValidator;
+import task1.models.ChessBoard;
+import task1.services.ChessBoardService;
+import task1.validators.ChessBoardValidator;
 
 public class ChessBoardController {
     private final ChessBoardService chessBoardService;

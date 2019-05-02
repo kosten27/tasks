@@ -1,9 +1,9 @@
-package controllers;
+package task3.controllers;
 
 import exceptions.ValidationException;
-import models.Triangle;
-import services.TriangleService;
-import validators.TriangleValidator;
+import task3.models.Triangle;
+import task3.services.TriangleService;
+import task3.validators.TriangleValidator;
 
 import java.util.ArrayList;
 

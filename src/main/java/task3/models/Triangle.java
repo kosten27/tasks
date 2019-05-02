@@ -1,4 +1,4 @@
-package models;
+package task3.models;
 
 public class Triangle {
     private final String name;

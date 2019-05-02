@@ -1,6 +1,7 @@
-package views;
+package task1.views;
 
-import controllers.ChessBoardController;
+import task1.controllers.ChessBoardController;
+import views.ConsoleHelper;
 
 public class ChessBoardView {
     private final String[] args;

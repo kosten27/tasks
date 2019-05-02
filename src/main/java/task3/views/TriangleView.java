@@ -1,10 +1,9 @@
-package views;
+package task3.views;
 
-import controllers.TriangleController;
+import task3.controllers.TriangleController;
+import views.ConsoleHelper;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class TriangleView {
     private final ConsoleHelper consoleHelper;

@@ -1,6 +1,6 @@
-package services;
+package task1.services;
 
-import models.ChessBoard;
+import task1.models.ChessBoard;
 
 public class ChessBoardService {
 
