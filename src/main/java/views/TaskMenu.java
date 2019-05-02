@@ -4,6 +4,7 @@ import task4.controllers.FileParserController;
 import task5.controllers.NumberInWordsController;
 import task6.controllers.HappyTicketsController;
 import task7.controllers.NumericSequenceController;
+import task8.controllers.FibonacciNumbersController;
 
 public class TaskMenu {
 
@@ -48,6 +49,10 @@ public class TaskMenu {
                     NumericSequenceController numericSequenceController = new NumericSequenceController(consoleHelper);
                     numericSequenceController.run();
                     break;
+                case "8":
+                    FibonacciNumbersController fibonacciNumbersController = new FibonacciNumbersController(consoleHelper);
+                    fibonacciNumbersController.run();
+                    break;
                 case "E":
                     isRunning = false;
                     break;
@@ -66,6 +71,7 @@ public class TaskMenu {
         consoleHelper.write("5. Number in words");
         consoleHelper.write("6. Happy tickets");
         consoleHelper.write("7. Numeric sequence");
+        consoleHelper.write("8. Fibonacci number range");
         consoleHelper.write("E. Exit");
     }
 }
