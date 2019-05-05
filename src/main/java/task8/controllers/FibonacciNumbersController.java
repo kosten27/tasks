@@ -17,26 +17,8 @@ public class FibonacciNumbersController {
     }
 
     public void run() {
-        boolean isRunning = true;
-        while (isRunning) {
-            showMenu();
-            switch (consoleHelper.read()) {
-                case "1":
-                    showFibonacciNumbers();
-                    break;
-                case "R":
-                    isRunning = false;
-                    break;
-                default:
-                    consoleHelper.write("Wrong input!");
-                    break;
-            }
-        }
-    }
-
-    private void showMenu() {
-        consoleHelper.write("1. Show Fibonacci numbers");
-        consoleHelper.write("R. Return to main menu");
+        showFibonacciNumbers();
+        consoleHelper.read("Press Enter to continue.");
     }
 
     private void showFibonacciNumbers() {

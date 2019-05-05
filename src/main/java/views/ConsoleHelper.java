@@ -1,7 +1,5 @@
 package views;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
@@ -32,11 +30,18 @@ public class ConsoleHelper {
             write(s);
             if (scanner.hasNextDouble()) {
                 value = scanner.nextDouble();
+                if (scanner.hasNextLine()) {
+                    scanner.nextLine();
+                }
                 isRunning = false;
             } else {
                 scanner.next();
             }
         }
         return value;
+    }
+
+    public void close() {
+        scanner.close();
     }
 }

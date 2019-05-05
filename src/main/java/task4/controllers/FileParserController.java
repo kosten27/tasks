@@ -13,7 +13,7 @@ public class FileParserController {
     private final FileParserService fileParserService;
     private final FileParserValidator fileParserValidator;
 
-    public FileParserController(String[] args, ConsoleHelper consoleHelper) {
+    public FileParserController(ConsoleHelper consoleHelper) {
         this.consoleHelper = consoleHelper;
         fileParserService = new FileParserService(new FileWorkerService());
         fileParserValidator = new FileParserValidator();

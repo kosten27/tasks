@@ -4,31 +4,43 @@ import exceptions.ValidationException;
 import task2.models.Envelope;
 import task2.services.EnvelopeService;
 import task2.validators.EnvelopeValidator;
-
-import java.util.ArrayList;
+import views.ConsoleHelper;
 
 public class EnvelopeController {
-    private final EnvelopeService envelopeService;
+    private final ConsoleHelper consoleHelper;
     private final EnvelopeValidator envelopeValidator;
+    private final EnvelopeService envelopeService;
 
-    public EnvelopeController() {
-        envelopeService = new EnvelopeService();
-        envelopeValidator = new EnvelopeValidator();
+    public EnvelopeController(ConsoleHelper consoleHelper) {
+        this.consoleHelper = consoleHelper;
+        this.envelopeValidator = new EnvelopeValidator();
+        this.envelopeService = new EnvelopeService();
     }
 
-    public ArrayList<String> getResultOfEnvelopeComparison(double[][] envelopesParameters) {
-        Envelope[] envelops = new Envelope[envelopesParameters.length];
-        for (int i = 0; i < envelopesParameters.length; i++) {
+    public void run() {
+        compareEnvelopes();
+        String read = consoleHelper.read("Press Enter to continue.");
+    }
+
+    private void compareEnvelopes() {
+        Envelope firstEnvelope = readEnvelope();
+        Envelope secondEnvelope = readEnvelope();
+        consoleHelper.write(envelopeService.getResultOfEnvelopeComparison(firstEnvelope, secondEnvelope));
+    }
+
+    private Envelope readEnvelope() {
+        Envelope envelope = null;
+        consoleHelper.write("Envelope:");
+        do {
             try {
-                envelopeValidator.validateInputDouble(envelopesParameters[i][0]);
-                envelopeValidator.validateInputDouble(envelopesParameters[i][1]);
+                double height = consoleHelper.readDouble("Enter height:");
+                double width = consoleHelper.readDouble("Enter width:");
+                envelopeValidator.validateParameters(height, width);
+                envelope = new Envelope(height, width);
             } catch (ValidationException e) {
-                ArrayList<String> result = new ArrayList<>();
-                result.add(e.getMessage());
-                return result;
+                consoleHelper.write(e.getMessage());
             }
-            envelops[i] = new Envelope(envelopesParameters[i][0], envelopesParameters[i][1]);
-        }
-        return envelopeService.getResultOfEnvelopeComparison(envelops);
+        } while (envelope == null);
+        return envelope;
     }
 }

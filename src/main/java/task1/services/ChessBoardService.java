@@ -9,12 +9,14 @@ public class ChessBoardService {
         for (int i = 0; i < chessBoard.getHeight(); i++) {
             for (int j = 0; j < chessBoard.getWidth(); j++) {
                 if (((i - j) % 2) == 0) {
-                    stringBuilder.append('*');
+                    stringBuilder.append('■');
                 } else {
-                    stringBuilder.append(' ');
+                    stringBuilder.append('□');
                 }
             }
-            stringBuilder.append('\n');
+            if (i + 1 < chessBoard.getHeight()) {
+                stringBuilder.append('\n');
+            }
         }
         return stringBuilder.toString();
     }

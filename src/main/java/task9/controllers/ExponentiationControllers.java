@@ -17,37 +17,19 @@ public class ExponentiationControllers {
     }
 
     public void run() {
-        boolean isRunning = true;
-        while (isRunning) {
-            showMenu();
-            switch (consoleHelper.read()) {
-                case "1":
-                    raiseNumberToPow();
-                    break;
-                case "R":
-                    isRunning = false;
-                    break;
-                default:
-                    consoleHelper.write("Wrong input!");
-                    break;
-            }
-        }
-    }
-
-    private void showMenu() {
-        consoleHelper.write("1. Raise the number to a power");
-        consoleHelper.write("R. Return to main menu");
+        raiseNumberToPow();
+        consoleHelper.read("Press Enter to continue.");
     }
 
     private void raiseNumberToPow() {
         try {
             String inputNumber = consoleHelper.read("Enter the number");
-            long number = Long.parseLong(inputNumber);
+            double number = Double.parseDouble(inputNumber);
             String inputExponent = consoleHelper.read("Enter exponent");
-            int exponent = Integer.parseInt(inputExponent);
+            long exponent = Long.parseLong(inputExponent);
             exponentiationValidator.validateExponent(exponent);
-            long pow = exponentiationService.raiseNumberToPow(number, exponent);
-            consoleHelper.write(Long.toString(pow));
+            double pow = exponentiationService.raiseNumberToPow(number, exponent);
+            consoleHelper.write(String.valueOf(pow));
         } catch (NumberFormatException e) {
             consoleHelper.write("Number format error");
         } catch (ValidationException e) {

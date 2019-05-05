@@ -2,13 +2,13 @@ package task3.services;
 
 import task3.models.Triangle;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 public class TriangleService {
 
-    public void sortTriangles(ArrayList<Triangle> triangles) {
+    public void sortTriangles(List<Triangle> triangles) {
         Comparator<Triangle> comparator = (t1, t2) -> {
             if (t1.getArea() < t2.getArea()) {
                 return 1;

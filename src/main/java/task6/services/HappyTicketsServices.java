@@ -20,11 +20,6 @@ public class HappyTicketsServices {
                 .count();
     }
 
-    public static void main(String[] args) {
-        HappyTicketsServices happyTicketsServices = new HappyTicketsServices();
-        System.out.println(happyTicketsServices.countNumberOfLuckyTickets("Piter"));
-    }
-
     private int countSumOfNumber(int number) {
         int temp = number;
         int count = 0;

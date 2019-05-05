@@ -1,8 +1,11 @@
+import views.ConsoleHelper;
 import views.TaskMenu;
 
 public class App {
     public static void main(String[] args) {
-        TaskMenu taskMenu = new TaskMenu(args);
-        taskMenu.show();
+        ConsoleHelper consoleHelper = new ConsoleHelper();
+        TaskMenu taskMenu = new TaskMenu(consoleHelper);
+        taskMenu.run();
+        consoleHelper.close();
     }
 }

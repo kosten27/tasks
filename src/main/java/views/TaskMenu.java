@@ -1,8 +1,8 @@
 package views;
 
-import task1.views.ChessBoardView;
-import task2.views.EnvelopeView;
-import task3.views.TriangleView;
+import task1.controllers.ChessBoardController;
+import task2.controllers.EnvelopeController;
+import task3.controllers.TriangleController;
 import task4.controllers.FileParserController;
 import task5.controllers.NumberInWordsController;
 import task6.controllers.HappyTicketsController;
@@ -11,34 +11,31 @@ import task8.controllers.FibonacciNumbersController;
 import task9.controllers.ExponentiationControllers;
 
 public class TaskMenu {
-
-    private final String[] args;
     private final ConsoleHelper consoleHelper;
 
-    public TaskMenu(String[] args) {
-        this.args = args;
-        this.consoleHelper = new ConsoleHelper();
+    public TaskMenu(ConsoleHelper consoleHelper) {
+        this.consoleHelper = consoleHelper;
     }
 
-    public void show() {
+    public void run() {
         boolean isRunning = true;
         while (isRunning) {
             showMenu();
             switch (consoleHelper.read()) {
                 case "1":
-                    ChessBoardView chessBoardView = new ChessBoardView(args, consoleHelper);
-                    chessBoardView.show();
+                    ChessBoardController chessBoardController = new ChessBoardController(consoleHelper);
+                    chessBoardController.run();
                     break;
                 case "2":
-                    EnvelopeView envelopeView = new EnvelopeView(consoleHelper);
-                    envelopeView.show();
+                    EnvelopeController envelopeController = new EnvelopeController(consoleHelper);
+                    envelopeController.run();
                     break;
                 case "3":
-                    TriangleView triangleView = new TriangleView(consoleHelper);
-                    triangleView.show();
+                    TriangleController triangleController = new TriangleController(consoleHelper);
+                    triangleController.run();
                     break;
                 case "4":
-                    FileParserController fileParserController = new FileParserController(args, consoleHelper);
+                    FileParserController fileParserController = new FileParserController(consoleHelper);
                     fileParserController.run();
                     break;
                 case "5":

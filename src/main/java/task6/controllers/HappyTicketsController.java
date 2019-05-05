@@ -22,26 +22,8 @@ public class HappyTicketsController {
     }
 
     public void run() {
-        boolean isRunning = true;
-        while (isRunning) {
-            showMenu();
-            switch (consoleHelper.read()) {
-                case "1":
-                    countNumberOfLuckyTickets();
-                    break;
-                case "R":
-                    isRunning = false;
-                    break;
-                default:
-                    consoleHelper.write("Wrong input!");
-                    break;
-            }
-        }
-    }
-
-    private void showMenu() {
-        consoleHelper.write("1. Count the number of lucky tickets");
-        consoleHelper.write("R. Return to main menu");
+        countNumberOfLuckyTickets();
+        consoleHelper.read("Press Enter to continue.");
     }
 
     private void countNumberOfLuckyTickets() {

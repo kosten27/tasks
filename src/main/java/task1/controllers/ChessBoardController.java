@@ -4,23 +4,37 @@ import exceptions.ValidationException;
 import task1.models.ChessBoard;
 import task1.services.ChessBoardService;
 import task1.validators.ChessBoardValidator;
+import views.ConsoleHelper;
 
 public class ChessBoardController {
+    private final ConsoleHelper consoleHelper;
+    private final ChessBoardValidator chessBoardValidator;
     private final ChessBoardService chessBoardService;
-    private final ChessBoardValidator validationService;
 
-    public ChessBoardController() {
-        chessBoardService = new ChessBoardService();
-        validationService = new ChessBoardValidator();
+    public ChessBoardController(ConsoleHelper consoleHelper) {
+        this.consoleHelper = consoleHelper;
+        this.chessBoardService = new ChessBoardService();
+        this.chessBoardValidator = new ChessBoardValidator();
     }
 
-    public String getChessBoardPresentation(String[] args) {
+    public void run() {
+        displayChessBoard();
+        consoleHelper.read("Press Enter to continue.");
+    }
+
+    private void displayChessBoard() {
         try {
-            validationService.validateParameters(args);
+            String stringHeight = consoleHelper.read("Enter height");
+            int height = Integer.parseInt(stringHeight);
+            String stringWidth = consoleHelper.read("Enter width");
+            int width = Integer.parseInt(stringWidth);
+            chessBoardValidator.validateParameters(height, width);
+            ChessBoard chessBoard = new ChessBoard(height, width);
+            consoleHelper.write(chessBoardService.getChessBoardPresentation(chessBoard));
+        } catch (NumberFormatException e) {
+            consoleHelper.write("Number format error");
         } catch (ValidationException e) {
-            return e.getMessage();
+            consoleHelper.write(e.getMessage());
         }
-        ChessBoard chessBoard = new ChessBoard(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
-        return chessBoardService.getChessBoardPresentation(chessBoard);
     }
 }

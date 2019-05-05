@@ -17,26 +17,8 @@ public class NumericSequenceController {
     }
 
     public void run() {
-        boolean isRunning = true;
-        while (isRunning) {
-            showMenu();
-            switch (consoleHelper.read()) {
-                case "1":
-                    showNumberSequence();
-                    break;
-                case "R":
-                    isRunning = false;
-                    break;
-                default:
-                    consoleHelper.write("Wrong input!");
-                    break;
-            }
-        }
-    }
-
-    private void showMenu() {
-        consoleHelper.write("1. Show number sequence");
-        consoleHelper.write("R. Return to main menu");
+        showNumberSequence();
+        consoleHelper.read("Press Enter to continue.");
     }
 
     private void showNumberSequence() {
