@@ -1,12 +1,13 @@
 package task1.controllers;
 
 import exceptions.ValidationException;
+import factories.Controller;
 import task1.models.ChessBoard;
 import task1.services.ChessBoardService;
 import task1.validators.ChessBoardValidator;
 import views.ConsoleHelper;
 
-public class ChessBoardController {
+public class ChessBoardController implements Controller {
     private final ConsoleHelper consoleHelper;
     private final ChessBoardValidator chessBoardValidator;
     private final ChessBoardService chessBoardService;

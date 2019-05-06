@@ -75,7 +75,7 @@ public class FileParserController {
 
     public String replaceLineInFile(String[] args) {
         try {
-            fileParserValidator.validatefParametersForReplace(args);
+            fileParserValidator.validateParametersForReplace(args);
             String filePath = args[0];
             String searchString = args[1];
             String replacementString = args[2];

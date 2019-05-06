@@ -15,7 +15,7 @@ public class FileParserValidator {
         }
     }
 
-    public void validatefParametersForReplace(String[] args) throws ValidationException {
+    public void validateParametersForReplace(String[] args) throws ValidationException {
         int minRequiredNumberOfParameters = 3;
         if (args.length < minRequiredNumberOfParameters) {
             throw new ValidationException(REQUIRED_PARAMETERS_FOR_REPLACE_EXCEPTION);
