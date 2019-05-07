@@ -1,25 +1,32 @@
 package task2.controllers;
 
 import exceptions.ValidationException;
+import application.Controller;
 import task2.models.Envelope;
 import task2.services.EnvelopeService;
 import task2.validators.EnvelopeValidator;
-import views.ConsoleHelper;
+import application.ConsoleHelper;
 
-public class EnvelopeController {
+public class EnvelopeController implements Controller {
     private final ConsoleHelper consoleHelper;
     private final EnvelopeValidator envelopeValidator;
     private final EnvelopeService envelopeService;
 
-    public EnvelopeController(ConsoleHelper consoleHelper) {
+    public EnvelopeController(ConsoleHelper consoleHelper, EnvelopeService envelopeService,
+                              EnvelopeValidator envelopeValidator) {
         this.consoleHelper = consoleHelper;
-        this.envelopeValidator = new EnvelopeValidator();
-        this.envelopeService = new EnvelopeService();
+        this.envelopeValidator = envelopeValidator;
+        this.envelopeService = envelopeService;
     }
 
     public void run() {
         compareEnvelopes();
-        String read = consoleHelper.read("Press Enter to continue.");
+        consoleHelper.read("Press Enter to continue.");
+    }
+
+    @Override
+    public String getName() {
+        return "Envelope analysis";
     }
 
     private void compareEnvelopes() {

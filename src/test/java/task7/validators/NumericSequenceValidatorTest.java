@@ -8,11 +8,11 @@ import task5.validators.NumberInWordsValidator;
 import static org.junit.Assert.*;
 
 public class NumericSequenceValidatorTest {
-    private NumberInWordsValidator numberInWordsValidator;
+    private NumericSequenceValidator numericSequenceValidator;
 
     @Before
     public void setUp() throws Exception {
-        numberInWordsValidator = new NumberInWordsValidator();
+        numericSequenceValidator = new NumericSequenceValidator();
     }
 
     @Test(expected = ValidationException.class)
@@ -21,7 +21,7 @@ public class NumericSequenceValidatorTest {
         int number = -1;
 
         //WHEN
-        numberInWordsValidator.validateNumber(number);
+        numericSequenceValidator.validateNumber(number);
     }
 
     @Test
@@ -30,6 +30,6 @@ public class NumericSequenceValidatorTest {
         int number = 0;
 
         //WHEN
-        numberInWordsValidator.validateNumber(number);
+        numericSequenceValidator.validateNumber(number);
     }
 }

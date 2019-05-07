@@ -1,4 +1,4 @@
-package views;
+package application;
 
 import java.io.InputStreamReader;
 import java.util.Scanner;

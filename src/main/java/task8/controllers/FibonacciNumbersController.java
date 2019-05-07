@@ -1,24 +1,31 @@
 package task8.controllers;
 
 import exceptions.ValidationException;
+import application.Controller;
 import task8.services.FibonacciNumbersService;
 import task8.validators.FibonacciNumbersValidator;
-import views.ConsoleHelper;
+import application.ConsoleHelper;
 
-public class FibonacciNumbersController {
+public class FibonacciNumbersController implements Controller {
     private final ConsoleHelper consoleHelper;
     private final FibonacciNumbersValidator fibonacciNumbersValidator;
     private final FibonacciNumbersService fibonacciNumbersService;
 
-    public FibonacciNumbersController(ConsoleHelper consoleHelper) {
+    public FibonacciNumbersController(ConsoleHelper consoleHelper, FibonacciNumbersService fibonacciNumbersService,
+                                      FibonacciNumbersValidator fibonacciNumbersValidator) {
         this.consoleHelper = consoleHelper;
-        this.fibonacciNumbersValidator = new FibonacciNumbersValidator();
-        this.fibonacciNumbersService = new FibonacciNumbersService();
+        this.fibonacciNumbersValidator = fibonacciNumbersValidator;
+        this.fibonacciNumbersService = fibonacciNumbersService;
     }
 
     public void run() {
         showFibonacciNumbers();
         consoleHelper.read("Press Enter to continue.");
+    }
+
+    @Override
+    public String getName() {
+        return "Fibonacci number range";
     }
 
     private void showFibonacciNumbers() {

@@ -1,26 +1,32 @@
 package task1.controllers;
 
 import exceptions.ValidationException;
-import factories.Controller;
+import application.Controller;
 import task1.models.ChessBoard;
 import task1.services.ChessBoardService;
 import task1.validators.ChessBoardValidator;
-import views.ConsoleHelper;
+import application.ConsoleHelper;
 
 public class ChessBoardController implements Controller {
     private final ConsoleHelper consoleHelper;
     private final ChessBoardValidator chessBoardValidator;
     private final ChessBoardService chessBoardService;
 
-    public ChessBoardController(ConsoleHelper consoleHelper) {
+    public ChessBoardController(ConsoleHelper consoleHelper, ChessBoardService chessBoardService,
+                                ChessBoardValidator chessBoardValidator) {
         this.consoleHelper = consoleHelper;
-        this.chessBoardService = new ChessBoardService();
-        this.chessBoardValidator = new ChessBoardValidator();
+        this.chessBoardService = chessBoardService;
+        this.chessBoardValidator = chessBoardValidator;
     }
 
     public void run() {
         displayChessBoard();
         consoleHelper.read("Press Enter to continue.");
+    }
+
+    @Override
+    public String getName() {
+        return "Chess board";
     }
 
     private void displayChessBoard() {

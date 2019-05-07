@@ -46,7 +46,7 @@ public class NumberInWordsRu implements NumberInWords {
     }
 
     @Override
-    public String getQuality(int partOfNumber, int rank) {
+    public String getQuantity(int partOfNumber, int rank) {
         if (rank > 0 && partOfNumber > 0) {
             int remainderHundred = partOfNumber % 100;
             int remainderTen = partOfNumber % 10;

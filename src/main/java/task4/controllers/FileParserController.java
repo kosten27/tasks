@@ -1,22 +1,23 @@
 package task4.controllers;
 
 import exceptions.ValidationException;
+import application.Controller;
 import task4.services.FileParserService;
-import services.FileWorkerService;
 import task4.validators.FileParserValidator;
-import views.ConsoleHelper;
+import application.ConsoleHelper;
 
 import java.io.IOException;
 
-public class FileParserController {
+public class FileParserController implements Controller {
     private final ConsoleHelper consoleHelper;
     private final FileParserService fileParserService;
     private final FileParserValidator fileParserValidator;
 
-    public FileParserController(ConsoleHelper consoleHelper) {
+    public FileParserController(ConsoleHelper consoleHelper, FileParserService fileParserService,
+                                FileParserValidator fileParserValidator) {
         this.consoleHelper = consoleHelper;
-        fileParserService = new FileParserService(new FileWorkerService());
-        fileParserValidator = new FileParserValidator();
+        this.fileParserService = fileParserService;
+        this.fileParserValidator = fileParserValidator;
     }
 
     public void run() {
@@ -38,6 +39,11 @@ public class FileParserController {
                     break;
             }
         }
+    }
+
+    @Override
+    public String getName() {
+        return "File parser";
     }
 
     private void showMenu() {

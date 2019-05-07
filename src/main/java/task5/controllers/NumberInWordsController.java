@@ -1,25 +1,31 @@
 package task5.controllers;
 
 import exceptions.ValidationException;
-import task5.models.NumberInWordsRu;
+import application.Controller;
 import task5.services.NumberInWordsService;
 import task5.validators.NumberInWordsValidator;
-import views.ConsoleHelper;
+import application.ConsoleHelper;
 
-public class NumberInWordsController {
+public class NumberInWordsController implements Controller {
     private final ConsoleHelper consoleHelper;
     private final NumberInWordsService numberInWordsService;
     private final NumberInWordsValidator numberInWordsValidator;
 
-    public NumberInWordsController(ConsoleHelper consoleHelper) {
+    public NumberInWordsController(ConsoleHelper consoleHelper, NumberInWordsService numberInWordsService,
+                                   NumberInWordsValidator numberInWordsValidator) {
         this.consoleHelper = consoleHelper;
-        this.numberInWordsService = new NumberInWordsService(new NumberInWordsRu());
-        this.numberInWordsValidator = new NumberInWordsValidator();
+        this.numberInWordsService = numberInWordsService;
+        this.numberInWordsValidator = numberInWordsValidator;
     }
 
     public void run() {
         convertNumberInWords();
         consoleHelper.read("Press Enter to continue.");
+    }
+
+    @Override
+    public String getName() {
+        return "Number in words";
     }
 
     private void convertNumberInWords() {

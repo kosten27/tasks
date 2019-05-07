@@ -1,29 +1,36 @@
 package task6.controllers;
 
 import exceptions.ValidationException;
+import application.Controller;
 import services.FileWorkerService;
 import task6.services.HappyTicketsServices;
 import task6.validators.HappyTicketsValidator;
-import views.ConsoleHelper;
+import application.ConsoleHelper;
 
 import java.io.IOException;
 
-public class HappyTicketsController {
+public class HappyTicketsController implements Controller {
     private final ConsoleHelper consoleHelper;
     private final HappyTicketsValidator happyTicketsValidator;
     private final HappyTicketsServices happyTicketsServices;
     private final FileWorkerService fileWorkerService;
 
-    public HappyTicketsController(ConsoleHelper consoleHelper) {
+    public HappyTicketsController(ConsoleHelper consoleHelper, HappyTicketsServices happyTicketsServices,
+                                  HappyTicketsValidator happyTicketsValidator, FileWorkerService fileWorkerService) {
         this.consoleHelper = consoleHelper;
-        this.happyTicketsValidator = new HappyTicketsValidator();
-        this.happyTicketsServices = new HappyTicketsServices();
-        this.fileWorkerService = new FileWorkerService();
+        this.happyTicketsValidator = happyTicketsValidator;
+        this.happyTicketsServices = happyTicketsServices;
+        this.fileWorkerService = fileWorkerService;
     }
 
     public void run() {
         countNumberOfLuckyTickets();
         consoleHelper.read("Press Enter to continue.");
+    }
+
+    @Override
+    public String getName() {
+        return "Happy tickets";
     }
 
     private void countNumberOfLuckyTickets() {

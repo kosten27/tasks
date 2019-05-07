@@ -1,22 +1,24 @@
 package task3.controllers;
 
 import exceptions.ValidationException;
+import application.Controller;
 import task3.models.Triangle;
 import task3.services.TriangleService;
 import task3.validators.TriangleValidator;
-import views.ConsoleHelper;
+import application.ConsoleHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TriangleController {
+public class TriangleController implements Controller {
     private final ConsoleHelper consoleHelper;
     private final TriangleValidator triangleValidator;
     private final TriangleService triangleService;
 
-    public TriangleController(ConsoleHelper consoleHelper) {
+    public TriangleController(ConsoleHelper consoleHelper, TriangleService triangleService,
+                              TriangleValidator triangleValidator) {
         this.consoleHelper = consoleHelper;
-        this.triangleValidator = new TriangleValidator();
-        this.triangleService = new TriangleService();
+        this.triangleValidator = triangleValidator;
+        this.triangleService = triangleService;
     }
 
     public void run() {
@@ -24,6 +26,11 @@ public class TriangleController {
         triangleService.sortTriangles(triangles);
         showTriangles(triangles);
         consoleHelper.read("Press Enter to continue.");
+    }
+
+    @Override
+    public String getName() {
+        return "Sort triangles";
     }
 
     private List<Triangle> readTriangles() {

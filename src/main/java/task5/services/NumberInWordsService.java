@@ -41,7 +41,7 @@ public class NumberInWordsService {
     }
 
     private void appendQuantity(StringBuilder string, int partOfNumber, int rank) {
-        String quality = numberInWords.getQuality(partOfNumber, rank);
+        String quality = numberInWords.getQuantity(partOfNumber, rank);
         if (!"".equals(quality)) {
             if (string.length() > 0) {
                 string.append(' ');
