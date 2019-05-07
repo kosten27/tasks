@@ -43,7 +43,7 @@ public class App {
     }
 
     private static List<Controller> getTasks(ConsoleHelper consoleHelper) {
-        List<Controller> tasks = new ArrayList();
+        List<Controller> tasks = new ArrayList<>();
         ChessBoardService chessBoardService = new ChessBoardService();
         ChessBoardValidator chessBoardValidator = new ChessBoardValidator();
         tasks.add(new ChessBoardController(consoleHelper, chessBoardService, chessBoardValidator));
